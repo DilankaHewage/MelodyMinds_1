@@ -1,0 +1,86 @@
+/* Container for the user account creation page */
+.user-account-creation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #3c1361, #5e2d79);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Box for the form */
+  .user-account-box {
+    background: #ffffff;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Title style */
+  .user-account-box h2 {
+    font-size: 22px;
+    color: #3c1361;
+    margin-bottom: 20px;
+  }
+  
+  /* Input fields */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #3c1361;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+  }
+  
+  .input-group input:focus {
+    border-color: #6a1b9a;
+    outline: none;
+    background-color: #f0f0f0;
+  }
+  
+  /* Create account button */
+  .create-account-button {
+    background: #6a1b9a;
+    color: #ffffff;
+    padding: 12px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-account-button:hover {
+    background: #8e24aa;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 480px) {
+    .user-account-box {
+      padding: 20px;
+    }
+  
+    .create-account-button {
+      font-size: 12px;
+    }
+  }
+  
