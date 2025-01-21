@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './LoginPage.css'; // CSS file for styling
+import './AdvertiserLoginPage.css'; // CSS file for styling
 
-const LoginPage = () => {
+const AdvertiserLoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -27,6 +27,8 @@ const LoginPage = () => {
       localStorage.setItem('token', response.data.token); // Store token if login successful
       setError(''); // Clear any previous error
       // Redirect or update the UI as needed (e.g., redirect to dashboard)
+      // For example, you can redirect to the dashboard page
+      window.location.href = '/dashboard';
     } catch (err) {
       console.error('Login error:', err.response?.data?.message || err.message);
       setError('Invalid email or password');
@@ -34,8 +36,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-form">
+    <div className="advertiser-login-container">
+      <div className="login-box">
         <h2 className="login-heading">Login to Your Account</h2>
         <form onSubmit={handleLogin} className="form-group">
           <div className="input-group">
@@ -73,4 +75,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default AdvertiserLoginPage;

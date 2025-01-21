@@ -1,6 +1,6 @@
-import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken'; // Importing jsonwebtoken
 import User from '../models/user.model.js';
+import { comparePassword } from './utils/passwordUtils.js';
 
 // Generate JWT Token (assuming a JWT secret is stored in environment variables)
 const generateToken = (userId) => {
@@ -14,6 +14,7 @@ export const registerUser = async (req, res) => {
   try {
     // Debug: Log the received user data
     console.log('Registering user with email:', email);
+    console.log('Plain password:', password); // Log the plain password
     
     // Check if the user already exists
     const userExists = await User.findOne({ email });
@@ -22,17 +23,12 @@ export const registerUser = async (req, res) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Hash the password before saving to the database
-    const hashedPassword = await bcrypt.hash(password, 10);
-
+    // Create a new user instance
     const user = new User({
       name,
       email,
-      password: hashedPassword,
+      password,
     });
-
-    // Debug: Log the hashed password (for testing purposes, remove in production)
-    console.log('Hashed password:', hashedPassword);
 
     // Save the user to the database
     await user.save();
@@ -62,6 +58,7 @@ export const loginUser = async (req, res) => {
   try {
     // Debug: Log the received login data
     console.log('Login attempt for email:', email);
+    console.log('Password received:', password); // Log the received password
 
     // Find the user by email
     const user = await User.findOne({ email });
@@ -73,8 +70,8 @@ export const loginUser = async (req, res) => {
     // Debug: Log the stored password hash (for testing purposes, remove in production)
     console.log('Stored hashed password:', user.password);
 
-    // Compare the entered password with the hashed password in the database
-    const isMatch = await bcrypt.compare(password, user.password);
+    // Compare the entered password with the hashed password in the database using comparePassword function
+    const isMatch = await comparePassword(password, user.password);
     console.log('Password match result:', isMatch); // Debug: Log the result of the password comparison
 
     if (!isMatch) {

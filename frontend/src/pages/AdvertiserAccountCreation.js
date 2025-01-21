@@ -74,7 +74,7 @@ const AdvertiserAccountCreation = () => {
       <div className="advertiser-account-box">
         {step === 1 ? (
           <>
-            <h2>Create Advertiser Account - Step 1</h2>
+            <h2>Create Advertiser Account</h2>
             <form>
               <div className="input-group">
                 <label htmlFor="firstName">First Name</label>

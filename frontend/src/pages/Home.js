@@ -151,7 +151,7 @@ function Home() {
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Explore Your Musical World by Event Name"
+          placeholder="Explore Your Musical World"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />

@@ -1,6 +1,6 @@
 import Advertiser from '../models/advertiser.model.js';
-import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { hashPassword, comparePassword } from './utils/passwordUtils.js';
 
 // Helper function to generate JWT Token
 const generateToken = (id) => {
@@ -30,7 +30,7 @@ export const registerAdvertiser = async (req, res) => {
     }
 
     // Hash the password before saving
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await hashPassword(password);
 
     // Create a new advertiser
     const advertiser = new Advertiser({
@@ -65,8 +65,6 @@ export const registerAdvertiser = async (req, res) => {
   }
 };
 
-
-
 // For Advertiser Login
 export const loginAdvertiser = async (req, res) => {
   const { email, password } = req.body;
@@ -79,12 +77,14 @@ export const loginAdvertiser = async (req, res) => {
     // Find the advertiser by email
     const advertiser = await Advertiser.findOne({ email });
     if (!advertiser) {
+      console.log('Advertiser not found');
       return res.status(400).json({ message: 'Invalid email or password' });
     }
 
-    // Compare the entered password with the hashed password in the database
-    const isMatch = await bcrypt.compare(password, advertiser.password);
+    // Compare the entered password with the hashed password in the database using comparePassword function
+    const isMatch = await comparePassword(password, advertiser.password);
     if (!isMatch) {
+      console.log('Password does not match');
       return res.status(400).json({ message: 'Invalid email or password' });
     }
 
@@ -92,10 +92,14 @@ export const loginAdvertiser = async (req, res) => {
     const token = generateToken(advertiser._id);
 
     // Respond with success message and token
+    console.log('Login successful');
     res.status(200).json({
       message: 'Login successful',
       token,
     });
+
+    // Additional log to confirm response is sent
+    console.log('Response sent to frontend');
 
   } catch (error) {
     console.error("Error logging in advertiser:", error);

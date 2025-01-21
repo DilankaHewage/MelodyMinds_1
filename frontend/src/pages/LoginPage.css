@@ -1,14 +1,21 @@
 /* Styles for the LoginPage */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+}
+
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #3c1361, #5e2d79); /* Background gradient */
+  background: url('D:\Semester 5\Web Development\MelodyMinds_1\MelodyMinds_1\frontend\public\images\yvette-de-wit-8XLapfNMW04-unsplash.jpg') no-repeat center center/cover; /* Background image */
 }
 
 .login-box {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
   padding: 40px;
   width: 300px;
   border-radius: 10px;
@@ -68,21 +75,26 @@
   background: #8e24aa;
 }
 
+.error-message {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
 .signup-link,
-.advertiser-link {
+.advertiser-login-link {
   margin-top: 20px;
   font-size: 14px;
   color: #6a1b9a;
 }
 
 .signup-link a,
-.advertiser-link a {
+.advertiser-login-link a {
   text-decoration: none;
   color: #6a1b9a;
   font-weight: bold;
 }
 
 .signup-link a:hover,
-.advertiser-link a:hover {
+.advertiser-login-link a:hover {
   color: #8e24aa;
 }

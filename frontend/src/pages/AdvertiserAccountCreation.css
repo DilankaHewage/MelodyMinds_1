@@ -1,84 +1,102 @@
 .advertiser-account-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #3c1361, #5e2d79);
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('D:\Semester 5\Web Development\MelodyMinds_1\MelodyMinds_1\frontend\public\images\advertiser login.jpg') no-repeat center center/cover; /* Background image */
+  font-family: 'Poppins', sans-serif;
+}
+
+.advertiser-account-box {
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.advertiser-account-box h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #3c1361;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #3c1361;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #6a1b9a;
+  outline: none;
+  background-color: #f0f0f0;
+}
+
+.next-button,
+.submit-button {
+  background: #6a1b9a;
+  color: #ffffff;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.next-button:hover,
+.submit-button:hover {
+  background: #8e24aa;
+}
+
+.terms-checkbox {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.terms-checkbox input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.terms-checkbox label {
+  font-size: 14px;
+  color: #3c1361;
+  line-height: 1.5;
+  word-break: break-word;
+  width: calc(100% - 30px);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
   .advertiser-account-box {
-    background: #ffffff;
-    padding: 40px;
-    width: 350px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    padding: 20px;
   }
-  
-  .advertiser-account-box h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 22px;
-    margin-bottom: 20px;
-    color: #3c1361;
-  }
-  
-  .input-group {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .input-group label {
-    font-size: 14px;
-    color: #3c1361;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .input-group input,
-  .input-group select {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
+
   .next-button,
   .submit-button {
-    background: #6a1b9a;
-    color: #ffffff;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 20px;
-    border: none;
-    width: 100%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .next-button:hover,
-  .submit-button:hover {
-    background: #8e24aa;
-  }
-  
-  .terms-checkbox {
-    display: flex;
-    align-items: flex-start;
-    margin-top: 20px;
-  }
-  
-  .terms-checkbox input[type="checkbox"] {
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-  
-  .terms-checkbox label {
     font-size: 14px;
-    color: #3c1361;
-    line-height: 1.5;
-    word-break: break-word;
-    width: calc(100% - 30px);
   }
-  
-
- 
+}

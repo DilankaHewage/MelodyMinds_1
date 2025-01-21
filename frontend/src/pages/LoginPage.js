@@ -42,7 +42,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Login</h2>
+        <h2>User Login</h2>
         <form onSubmit={handleLogin}>
           {error && <div className="error-message">{error}</div>} {/* Show error message if there's an error */}
           
